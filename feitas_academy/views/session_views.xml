@@ -1,0 +1,55 @@
+<odoo>
+	<data>
+
+
+
+		<record model="ir.ui.view" id="view_fa_session_tree">
+            <field name="name">view.fa.session.tree</field>
+            <field name="model">fa.session</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="view_fa_session_form">
+            <field name="name">view.fa.session.form</field>
+            <field name="model">fa.session</field>
+            <field name="arch" type="xml">
+                <form string="开班">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_fa_session">
+            <field name="name">开班</field>
+            <field name="res_model">fa.session</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <!-- 桌面菜单 -->
+        <menuitem 
+        	name="Feitas学院"
+            id="menu_fa_desk"/>
+
+        <menuitem 
+        	name="开班管理"
+            id="menu_fa_sessions"
+            parent="menu_fa_desk"
+            sequence="10"/>
+
+        <menuitem 
+        	name="开班"
+        	id="menu_fa_sessions_session" 
+            parent="menu_fa_sessions"
+            sequence="10"
+            action="action_fa_session"/>
+	</data>
+</odoo>
